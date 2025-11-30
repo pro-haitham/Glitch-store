@@ -10,14 +10,13 @@
     <style>
         :root {
             /* NEW COLORS */
-            --neon-primary: #CCFF00;  /* Previously Cyan */
-            --neon-secondary: #556B2F; /* Previously Pink */
-            --neon-highlight: #CCFF00; /* Previously Green */
+            --neon-primary: #CCFF00;  /* Neon Lime */
+            --neon-secondary: #556B2F; /* Dark Olive Green */
+            --neon-highlight: #CCFF00;
             
             --cyber-black: #050505;
             --cyber-dark: #0a0a0f;
             --cyber-gray: #1a1a2e;
-            /* Updated grid color to match #CCFF00 (204, 255, 0) */
             --grid-color: rgba(204, 255, 0, 0.1); 
         }
 
@@ -153,25 +152,10 @@
             text-shadow: 0 0 10px var(--neon-secondary);
         }
 
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: var(--neon-secondary);
-            color: #fff;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: 2px 6px;
-            clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%, 0 20%);
-        }
-
         /* Buttons */
         .cyber-btn {
+            display: inline-block; /* Added to make <a> work like button */
+            text-decoration: none; /* Remove underline */
             background: transparent;
             border: none;
             color: var(--neon-primary);
@@ -208,14 +192,34 @@
         }
 
         .cyber-btn-secondary {
+            display: inline-block; /* Added */
+            text-decoration: none; /* Added */
             color: #fff;
             background-color: rgba(85, 107, 47, 0.3);
             border-right: 2px solid var(--neon-secondary);
             border-bottom: 2px solid var(--neon-secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            padding: 5px 15px; 
+            font-size: 0.8rem;
         }
-
+        
+        /* Needed to add the side bar to secondary button manually since classes changed */
         .cyber-btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px; /* Slightly thinner for small button */
+            height: 100%;
             background-color: var(--neon-secondary);
+            transition: 0.3s;
         }
 
         .cyber-btn-secondary:hover {
@@ -508,9 +512,10 @@
             <h4 style="color: var(--neon-highlight); letter-spacing: 4px; margin-bottom: 10px;">// NEW ARRIVAL</h4>
             <h1 class="glitch-text" data-text="NEURAL LINK VR">NEURAL LINK VR</h1>
             <p>Experience full-dive immersion with zero latency. The next evolution of gaming is here.</p>
-            <button class="cyber-btn">
+            
+            <a href="https://wa.me/967715151560?text=I%20want%20to%20buy%20NEURAL%20LINK%20VR" target="_blank" class="cyber-btn">
                 INITIATE_PURCHASE <i class="fas fa-chevron-right" style="margin-left: 10px;"></i>
-            </button>
+            </a>
         </div>
     </header>
 
@@ -538,7 +543,7 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Ultra-lightweight chassis with neural-response click sensors.</p>
                     <div class="card-price-row">
                         <span class="price">¥8,500</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
+                        <a href="https://wa.me/967715151560?text=I%20want%20to%20buy%20Viper-X%20CyberMouse" target="_blank" class="cyber-btn-secondary">Buy +</a>
                     </div>
                 </div>
             </article>
@@ -559,7 +564,7 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Active noise cancellation with tactical sound enhancement.</p>
                     <div class="card-price-row">
                         <span class="price">¥14,200</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
+                        <a href="https://wa.me/967715151560?text=I%20want%20to%20buy%20Sonic-Blast%209000" target="_blank" class="cyber-btn-secondary">Buy +</a>
                     </div>
                 </div>
             </article>
@@ -580,7 +585,7 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Aircraft-grade aluminum with programmable macro matrix.</p>
                     <div class="card-price-row">
                         <span class="price">¥12,000</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
+                        <a href="https://wa.me/967715151560?text=I%20want%20to%20buy%20Mech-Strike%20Z" target="_blank" class="cyber-btn-secondary">Buy +</a>
                     </div>
                 </div>
             </article>
@@ -601,7 +606,7 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Adaptive triggers with biometric grip sensors.</p>
                     <div class="card-price-row">
                         <span class="price">¥9,900</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
+                        <a href="https://wa.me/967715151560?text=I%20want%20to%20buy%20Dual-Shock%20Titan" target="_blank" class="cyber-btn-secondary">Buy +</a>
                     </div>
                 </div>
             </article>
