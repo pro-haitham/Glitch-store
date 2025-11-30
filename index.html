@@ -628,32 +628,6 @@
         <p style="font-size: 0.8rem; color: #444; margin-top: 10px;">TERMINAL_ID: #8849-XJ</p>
     </footer>
 
-    <script>
-        let count = 0;
-        const countDisplay = document.querySelector('.cart-count');
-
-        function addToCart() {
-            count++;
-            countDisplay.innerText = count;
-            
-            // Visual feedback effect
-            const btn = event.target.closest('button');
-            const originalText = btn.innerHTML;
-            
-            btn.style.backgroundColor = 'var(--neon-green)';
-            btn.style.color = '#000';
-            btn.innerText = 'ADDED!';
-            
-            setTimeout(() => {
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-                btn.innerHTML = originalText;
-            }, 1000);
-        }
-
-        function toggleCart() {
-            alert(" SYSTEM MSG: Cart Access Denied. \n Reason: Demo Mode Only.");
-        }
-    </script>
 </body>
+
 </html>
