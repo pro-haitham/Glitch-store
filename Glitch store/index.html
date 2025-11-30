@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO-MARKET // 2077</title>
-    <!-- Google Fonts for that Sci-Fi look -->
+    <title>GLITCH STORE // 2077</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --neon-cyan: #00f3ff;
-            --neon-pink: #ff00ff;
-            --neon-green: #0f0;
+            /* NEW COLORS */
+            --neon-primary: #CCFF00;  /* Previously Cyan */
+            --neon-secondary: #556B2F; /* Previously Pink */
+            --neon-highlight: #CCFF00; /* Previously Green */
+            
             --cyber-black: #050505;
             --cyber-dark: #0a0a0f;
             --cyber-gray: #1a1a2e;
-            --grid-color: rgba(0, 243, 255, 0.1);
+            /* Updated grid color to match #CCFF00 (204, 255, 0) */
+            --grid-color: rgba(204, 255, 0, 0.1); 
         }
 
         * {
@@ -90,14 +91,14 @@
 
         .glitch-text::before {
             left: 2px;
-            text-shadow: -1px 0 var(--neon-pink);
+            text-shadow: -1px 0 var(--neon-secondary);
             clip: rect(24px, 550px, 90px, 0);
             animation: glitch-anim 3s infinite linear alternate-reverse;
         }
 
         .glitch-text::after {
             left: -2px;
-            text-shadow: -1px 0 var(--neon-cyan);
+            text-shadow: -1px 0 var(--neon-primary);
             clip: rect(85px, 550px, 140px, 0);
             animation: glitch-anim 2s infinite linear alternate-reverse;
         }
@@ -119,7 +120,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            border-bottom: 2px solid var(--neon-cyan);
+            border-bottom: 2px solid var(--neon-primary);
             background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(10px);
             position: sticky;
@@ -130,7 +131,7 @@
 
         .brand {
             font-size: 1.8rem;
-            color: var(--neon-cyan);
+            color: var(--neon-primary);
             font-weight: 900;
         }
 
@@ -148,8 +149,8 @@
         }
 
         .nav-link:hover {
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
+            color: var(--neon-secondary);
+            text-shadow: 0 0 10px var(--neon-secondary);
         }
 
         .cart-icon {
@@ -161,8 +162,8 @@
             position: absolute;
             top: -10px;
             right: -10px;
-            background: var(--neon-pink);
-            color: #000;
+            background: var(--neon-secondary);
+            color: #fff;
             font-weight: bold;
             font-size: 0.8rem;
             padding: 2px 6px;
@@ -173,7 +174,7 @@
         .cyber-btn {
             background: transparent;
             border: none;
-            color: var(--neon-cyan);
+            color: var(--neon-primary);
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             font-size: 1rem;
@@ -184,9 +185,9 @@
             letter-spacing: 2px;
             transition: 0.3s;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            background-color: rgba(0, 243, 255, 0.1);
-            border-right: 2px solid var(--neon-cyan);
-            border-bottom: 2px solid var(--neon-cyan);
+            background-color: rgba(204, 255, 0, 0.1);
+            border-right: 2px solid var(--neon-primary);
+            border-bottom: 2px solid var(--neon-primary);
         }
 
         .cyber-btn::before {
@@ -196,31 +197,31 @@
             left: 0;
             width: 6px;
             height: 100%;
-            background-color: var(--neon-cyan);
+            background-color: var(--neon-primary);
             transition: 0.3s;
         }
 
         .cyber-btn:hover {
-            background-color: var(--neon-cyan);
+            background-color: var(--neon-primary);
             color: #000;
-            box-shadow: 0 0 20px var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-primary);
         }
 
         .cyber-btn-secondary {
-            color: var(--neon-pink);
-            background-color: rgba(255, 0, 255, 0.1);
-            border-right: 2px solid var(--neon-pink);
-            border-bottom: 2px solid var(--neon-pink);
+            color: #fff;
+            background-color: rgba(85, 107, 47, 0.3);
+            border-right: 2px solid var(--neon-secondary);
+            border-bottom: 2px solid var(--neon-secondary);
         }
 
         .cyber-btn-secondary::before {
-            background-color: var(--neon-pink);
+            background-color: var(--neon-secondary);
         }
 
         .cyber-btn-secondary:hover {
-            background-color: var(--neon-pink);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-pink);
+            background-color: var(--neon-secondary);
+            color: #fff;
+            box-shadow: 0 0 20px var(--neon-secondary);
         }
 
         /* Hero Section */
@@ -230,7 +231,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            border-bottom: 1px solid var(--neon-cyan);
+            border-bottom: 1px solid var(--neon-primary);
             overflow: hidden;
         }
         
@@ -240,7 +241,7 @@
             max-width: 800px;
             padding: 20px;
             background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(0, 243, 255, 0.3);
+            border: 1px solid rgba(204, 255, 0, 0.3);
             backdrop-filter: blur(5px);
             clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%, 0 15%);
         }
@@ -267,7 +268,7 @@
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 40px;
-            border-left: 5px solid var(--neon-pink);
+            border-left: 5px solid var(--neon-secondary);
             padding-left: 20px;
             display: flex;
             align-items: center;
@@ -277,7 +278,7 @@
         .section-title span {
             font-size: 0.9rem;
             font-family: 'Rajdhani', sans-serif;
-            color: var(--neon-cyan);
+            color: var(--neon-primary);
             letter-spacing: 2px;
         }
 
@@ -321,8 +322,8 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
-            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+            border-color: var(--neon-primary);
         }
 
         .card-image-container {
@@ -339,13 +340,13 @@
         .card-image-container i {
             font-size: 6rem;
             color: #fff;
-            filter: drop-shadow(0 0 10px var(--neon-cyan));
+            filter: drop-shadow(0 0 10px var(--neon-primary));
             transition: 0.3s;
         }
 
         .product-card:hover .card-image-container i {
             transform: scale(1.1);
-            color: var(--neon-cyan);
+            color: var(--neon-primary);
         }
 
         /* Holographic Overlay on Hover */
@@ -359,7 +360,7 @@
             background: linear-gradient(
                 45deg,
                 transparent 45%,
-                rgba(0, 243, 255, 0.1) 50%,
+                rgba(204, 255, 0, 0.1) 50%,
                 transparent 55%
             );
             transform: rotate(45deg) translateY(-100%);
@@ -378,7 +379,7 @@
         }
 
         .card-category {
-            color: var(--neon-pink);
+            color: var(--neon-secondary);
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -406,7 +407,7 @@
         }
 
         .stat-item i {
-            color: var(--neon-green);
+            color: var(--neon-highlight);
         }
 
         .card-price-row {
@@ -418,14 +419,14 @@
 
         .price {
             font-size: 1.5rem;
-            color: var(--neon-cyan);
+            color: var(--neon-primary);
             font-weight: 700;
         }
 
         /* Decorative "Tech" Lines */
         .tech-line {
             position: absolute;
-            background: var(--neon-cyan);
+            background: var(--neon-primary);
         }
         .tl-top-right {
             top: 0;
@@ -464,7 +465,7 @@
         }
 
         footer a:hover {
-            color: var(--neon-pink);
+            color: var(--neon-secondary);
             transform: translateY(-3px);
         }
 
@@ -475,7 +476,7 @@
                 flex-direction: column;
                 gap: 15px;
                 clip-path: none;
-                border-bottom: 1px solid var(--neon-cyan);
+                border-bottom: 1px solid var(--neon-primary);
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -492,33 +493,28 @@
     <div class="cyber-grid-bg"></div>
 
     <nav class="navbar">
-        <div class="brand glitch-text" data-text="CYBER_LOOT">CYBER_LOOT</div>
+        <div class="brand glitch-text" data-text="GLITCH_STORE">GLITCH_STORE</div>
         <div class="nav-links">
             <a href="#" class="nav-link">HOME</a>
             <a href="#" class="nav-link">ARMORY</a>
             <a href="#" class="nav-link">CYBERNETICS</a>
             <a href="#" class="nav-link">SUPPORT</a>
         </div>
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-cart fa-lg" style="color: var(--neon-cyan);"></i>
-            <span class="cart-count">0</span>
-        </div>
+      
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h4 style="color: var(--neon-green); letter-spacing: 4px; margin-bottom: 10px;">// NEW ARRIVAL</h4>
+            <h4 style="color: var(--neon-highlight); letter-spacing: 4px; margin-bottom: 10px;">// NEW ARRIVAL</h4>
             <h1 class="glitch-text" data-text="NEURAL LINK VR">NEURAL LINK VR</h1>
             <p>Experience full-dive immersion with zero latency. The next evolution of gaming is here.</p>
-            <button class="cyber-btn" onclick="addToCart()">
+            <button class="cyber-btn">
                 INITIATE_PURCHASE <i class="fas fa-chevron-right" style="margin-left: 10px;"></i>
             </button>
         </div>
     </header>
 
     <div class="container">
-        <!-- Section Title -->
         <div class="section-title">
             <h2 class="glitch-text" data-text="TRENDING GEAR">TRENDING GEAR</h2>
             <span>SYSTEM_READY // 4 ITEMS FOUND</span>
@@ -526,7 +522,6 @@
 
         <div class="product-grid">
             
-            <!-- Product 1 -->
             <article class="product-card">
                 <span class="tech-line tl-top-right"></span>
                 <span class="tech-line tl-bottom-left"></span>
@@ -543,12 +538,11 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Ultra-lightweight chassis with neural-response click sensors.</p>
                     <div class="card-price-row">
                         <span class="price">¥8,500</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;" onclick="addToCart()">ADD +</button>
+                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
                     </div>
                 </div>
             </article>
 
-            <!-- Product 2 -->
             <article class="product-card">
                 <span class="tech-line tl-top-right"></span>
                 <span class="tech-line tl-bottom-left"></span>
@@ -565,12 +559,11 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Active noise cancellation with tactical sound enhancement.</p>
                     <div class="card-price-row">
                         <span class="price">¥14,200</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;" onclick="addToCart()">ADD +</button>
+                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
                     </div>
                 </div>
             </article>
 
-            <!-- Product 3 -->
             <article class="product-card">
                 <span class="tech-line tl-top-right"></span>
                 <span class="tech-line tl-bottom-left"></span>
@@ -587,12 +580,11 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Aircraft-grade aluminum with programmable macro matrix.</p>
                     <div class="card-price-row">
                         <span class="price">¥12,000</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;" onclick="addToCart()">ADD +</button>
+                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
                     </div>
                 </div>
             </article>
 
-            <!-- Product 4 -->
             <article class="product-card">
                 <span class="tech-line tl-top-right"></span>
                 <span class="tech-line tl-bottom-left"></span>
@@ -609,7 +601,7 @@
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Adaptive triggers with biometric grip sensors.</p>
                     <div class="card-price-row">
                         <span class="price">¥9,900</span>
-                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;" onclick="addToCart()">ADD +</button>
+                        <button class="cyber-btn-secondary" style="padding: 5px 15px; font-size: 0.8rem;">Buy +</button>
                     </div>
                 </div>
             </article>
@@ -620,40 +612,12 @@
     <footer>
         <div class="socials">
             <a href="#"><i class="fab fa-discord"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>&copy; 2077 CYBER_LOOT SYSTEMS. ALL RIGHTS RESERVED.</p>
+        <p>&copy; 2077 GLITCH_STORE SYSTEMS. ALL RIGHTS RESERVED.</p>
         <p style="font-size: 0.8rem; color: #444; margin-top: 10px;">TERMINAL_ID: #8849-XJ</p>
     </footer>
-
-    <script>
-        let count = 0;
-        const countDisplay = document.querySelector('.cart-count');
-
-        function addToCart() {
-            count++;
-            countDisplay.innerText = count;
-            
-            // Visual feedback effect
-            const btn = event.target.closest('button');
-            const originalText = btn.innerHTML;
-            
-            btn.style.backgroundColor = 'var(--neon-green)';
-            btn.style.color = '#000';
-            btn.innerText = 'ADDED!';
-            
-            setTimeout(() => {
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-                btn.innerHTML = originalText;
-            }, 1000);
-        }
-
-        function toggleCart() {
-            alert(" SYSTEM MSG: Cart Access Denied. \n Reason: Demo Mode Only.");
-        }
-    </script>
 </body>
 </html>
