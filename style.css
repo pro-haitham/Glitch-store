@@ -1,28 +1,25 @@
 :root {
-    /* RESTORED ORIGINAL GREEN THEME */
-    --neon-primary: #CCFF00;  /* Neon Lime */
-    --neon-secondary: #556B2F; /* Dark Olive Green */
+    /* DEFAULT THEME (Toxic Green) */
+    --neon-primary: #CCFF00;  
+    --neon-secondary: #556B2F; 
     --neon-highlight: #CCFF00;
     
     --cyber-black: #050505;
     --cyber-dark: #0a0a0f;
     --cyber-gray: #1a1a2e;
-    --grid-color: rgba(204, 255, 0, 0.1); 
 }
 
 /* --- THEME OVERRIDES --- */
 body.theme-red {
-    --neon-primary: #FF003C;  /* Cyber Red */
-    --neon-secondary: #800000; /* Dark Red */
+    --neon-primary: #FF003C;  
+    --neon-secondary: #800000; 
     --neon-highlight: #FF003C;
-    --grid-color: rgba(255, 0, 60, 0.15);
 }
 
 body.theme-blue {
-    --neon-primary: #00F0FF;  /* Cyan */
-    --neon-secondary: #005f6b; /* Dark Teal */
+    --neon-primary: #00F0FF;  
+    --neon-secondary: #005f6b; 
     --neon-highlight: #00F0FF;
-    --grid-color: rgba(0, 240, 255, 0.15);
 }
 
 * {
@@ -37,10 +34,10 @@ body {
     font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
     position: relative;
-    cursor: none; /* HIDE DEFAULT CURSOR */
+    cursor: none; 
 }
 
-/* --- CUSTOM TACTICAL CURSOR --- */
+/* --- CUSTOM CURSOR --- */
 .cursor-outer {
     width: 40px;
     height: 40px;
@@ -78,23 +75,44 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* --- CRT Scanline Overlay --- */
-body::before {
-    content: " ";
-    display: block;
+/* --- CANVAS BACKGROUND (Neural Network) --- */
+#neural-canvas {
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Behind everything */
+    background-color: var(--cyber-black);
+}
+
+/* Scanline Overlay on top of canvas */
+.scanline-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 9999;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
     opacity: 0.6;
 }
 
-/* --- BOOT SEQUENCE --- */
+/* --- SCROLL REVEAL ANIMATION --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- BOOT SCREEN --- */
 #boot-screen {
     position: fixed;
     top: 0;
@@ -136,22 +154,6 @@ body::before {
     pointer-events: none;
 }
 
-/* --- Background Grid --- */
-.cyber-grid-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: -1;
-    perspective: 500px;
-    transform-style: preserve-3d;
-}
-
 /* --- Typography & Glitch --- */
 h1, h2, h3, .brand {
     font-family: 'Orbitron', sans-serif;
@@ -171,7 +173,7 @@ h1, h2, h3, .brand {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--cyber-black);
+    background: var(--cyber-black); /* Matches bg */
 }
 
 .glitch-text::before {

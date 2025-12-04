@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLITCH STORE // 2077</title>
+    <title>GLITCH STORE // 2077 // ULTIMATE</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -20,9 +20,10 @@
         </div>
     </div>
 
-    <div class="cyber-grid-bg"></div>
+    <canvas id="neural-canvas"></canvas>
+    <div class="scanline-overlay"></div>
 
-    <nav class="navbar">
+    <nav class="navbar reveal">
         <div class="brand glitch-text" data-text="GLITCH_STORE">GLITCH_STORE</div>
         <div class="nav-links">
             <a href="#" class="nav-link">HOME</a>
@@ -32,7 +33,7 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero reveal">
         <div class="hero-content">
             <h4 style="color: var(--neon-highlight); letter-spacing: 4px; margin-bottom: 10px;">// NEW ARRIVAL</h4>
             <h1 class="glitch-text" data-text="NEURAL LINK VR">NEURAL LINK VR</h1>
@@ -44,14 +45,14 @@
     </header>
 
     <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
             <h2 class="glitch-text" data-text="TRENDING GEAR">TRENDING GEAR</h2>
             <span>SYSTEM_READY // 4 ITEMS FOUND</span>
         </div>
 
         <div class="product-grid">
             
-            <div class="product-card-container">
+            <div class="product-card-container reveal">
                 <div class="product-card-inner">
                     <div class="product-card-front">
                         <span class="tech-line tl-top-right"></span>
@@ -83,7 +84,7 @@
                 </div>
             </div>
 
-            <div class="product-card-container">
+            <div class="product-card-container reveal">
                 <div class="product-card-inner">
                     <div class="product-card-front">
                         <span class="tech-line tl-top-right"></span>
@@ -115,7 +116,7 @@
                 </div>
             </div>
 
-            <div class="product-card-container">
+            <div class="product-card-container reveal">
                 <div class="product-card-inner">
                     <div class="product-card-front">
                         <span class="tech-line tl-top-right"></span>
@@ -147,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="product-card-container">
+            <div class="product-card-container reveal">
                 <div class="product-card-inner">
                     <div class="product-card-front">
                         <span class="tech-line tl-top-right"></span>
@@ -182,7 +183,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="reveal">
         <div class="theme-selector">
             <p style="margin-bottom:10px; font-size:0.8rem; letter-spacing: 2px;">SYSTEM_THEME_OVERRIDE:</p>
             <button class="theme-btn theme-green" onclick="setTheme('green')" title="NETRUNNER (Default)"></button>
@@ -202,8 +203,12 @@
 
     <div class="hud-status-panel">
         <div class="hud-row">
-            <span class="hud-label">SERVER_STATUS:</span>
+            <span class="hud-label">STATUS:</span>
             <span class="hud-value blink-text" style="color: var(--neon-primary)">ONLINE</span>
+        </div>
+        <div class="hud-row">
+            <span class="hud-label">LOG:</span>
+            <span class="hud-value" id="system-log" style="font-size: 0.8rem; color: #fff;">Scanning...</span>
         </div>
         <div class="hud-row">
             <span class="hud-label">NETRUNNERS:</span>
