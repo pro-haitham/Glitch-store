@@ -1,9 +1,7 @@
 :root {
-    /* NEW COLORS */
     --neon-primary: #CCFF00;  /* Neon Lime */
     --neon-secondary: #556B2F; /* Dark Olive Green */
     --neon-highlight: #CCFF00;
-    
     --cyber-black: #050505;
     --cyber-dark: #0a0a0f;
     --cyber-gray: #1a1a2e;
@@ -56,12 +54,13 @@ body::before {
     transform-style: preserve-3d;
 }
 
-/* --- Typography & Glitch Effects --- */
+/* --- Typography --- */
 h1, h2, h3, .brand {
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
 }
 
+/* --- Glitch Effect --- */
 .glitch-text {
     position: relative;
     color: #fff;
@@ -101,9 +100,7 @@ h1, h2, h3, .brand {
     100% { clip: rect(48px, 9999px, 118px, 0); }
 }
 
-/* --- UI Components --- */
-
-/* Navbar */
+/* --- Navbar --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -142,7 +139,7 @@ h1, h2, h3, .brand {
     text-shadow: 0 0 10px var(--neon-secondary);
 }
 
-/* Buttons */
+/* --- Buttons --- */
 .cyber-btn {
     display: inline-block;
     text-decoration: none;
@@ -162,17 +159,6 @@ h1, h2, h3, .brand {
     background-color: rgba(204, 255, 0, 0.1);
     border-right: 2px solid var(--neon-primary);
     border-bottom: 2px solid var(--neon-primary);
-}
-
-.cyber-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background-color: var(--neon-primary);
-    transition: 0.3s;
 }
 
 .cyber-btn:hover {
@@ -200,24 +186,13 @@ h1, h2, h3, .brand {
     font-size: 0.8rem;
 }
 
-.cyber-btn-secondary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background-color: var(--neon-secondary);
-    transition: 0.3s;
-}
-
 .cyber-btn-secondary:hover {
     background-color: var(--neon-secondary);
     color: #fff;
     box-shadow: 0 0 20px var(--neon-secondary);
 }
 
-/* Hero Section */
+/* --- Hero --- */
 .hero {
     height: 80vh;
     display: flex;
@@ -251,7 +226,7 @@ h1, h2, h3, .brand {
     color: #ccc;
 }
 
-/* Products Grid */
+/* --- Layout --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -281,42 +256,60 @@ h1, h2, h3, .brand {
     gap: 40px;
 }
 
-/* Cyber Product Card */
-.product-card {
-    background: var(--cyber-dark);
-    position: relative;
-    transition: 0.3s;
-    border: 1px solid #333;
-    clip-path: polygon(
-        0 0, 
-        100% 0, 
-        100% 90%, 
-        90% 100%, 
-        0 100%
-    );
+/* =========================================
+   3D FLIP CARD SYSTEM
+   ========================================= */
+
+/* 1. Container: Sets the stage */
+.product-card-container {
+    background-color: transparent;
+    width: 100%;
+    height: 400px; /* Fixed height is mandatory for flips */
+    perspective: 1000px;
+    margin-bottom: 20px;
 }
 
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* 2. Inner Wrapper: The spinning object */
+.product-card-inner {
+    position: relative;
     width: 100%;
     height: 100%;
-    border: 1px solid transparent;
-    z-index: 10;
-    pointer-events: none;
-    transition: 0.3s;
+    text-align: left;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+/* 3. Trigger Flip */
+.product-card-container:hover .product-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* 4. Common Faces */
+.product-card-front, .product-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: var(--cyber-dark);
+    border: 1px solid #333;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+    transition: border-color 0.3s;
+}
+
+/* FRONT FACE Styling */
+.product-card-front {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-container:hover .product-card-front {
     border-color: var(--neon-primary);
 }
 
 .card-image-container {
-    height: 250px;
+    height: 220px;
     background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
     display: flex;
     align-items: center;
@@ -333,38 +326,14 @@ h1, h2, h3, .brand {
     transition: 0.3s;
 }
 
-.product-card:hover .card-image-container i {
+.product-card-container:hover .card-image-container i {
     transform: scale(1.1);
     color: var(--neon-primary);
 }
 
-/* Holographic Overlay on Hover */
-.card-image-container::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 45%,
-        rgba(204, 255, 0, 0.1) 50%,
-        transparent 55%
-    );
-    transform: rotate(45deg) translateY(-100%);
-    transition: 0.5s;
-    opacity: 0;
-}
-
-.product-card:hover .card-image-container::after {
-    opacity: 1;
-    transform: rotate(45deg) translateY(100%);
-}
-
 .card-details {
     padding: 20px;
-    position: relative;
+    flex-grow: 1;
 }
 
 .card-category {
@@ -381,24 +350,6 @@ h1, h2, h3, .brand {
     font-family: 'Orbitron', sans-serif;
 }
 
-.card-stats {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.stat-item i {
-    color: var(--neon-highlight);
-}
-
 .card-price-row {
     display: flex;
     justify-content: space-between;
@@ -412,10 +363,62 @@ h1, h2, h3, .brand {
     font-weight: 700;
 }
 
-/* Decorative "Tech" Lines */
+.hover-hint {
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* BACK FACE Styling */
+.product-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--cyber-black) 0%, #111 100%);
+    border: 1px solid var(--neon-secondary);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-title {
+    color: var(--neon-primary);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--neon-secondary);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.spec-list {
+    list-style: none;
+    margin-bottom: auto; /* Pushes action area down */
+}
+
+.spec-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 5px;
+}
+
+.spec-list li span {
+    color: var(--neon-secondary);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.action-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Decorative Lines */
 .tech-line {
     position: absolute;
     background: var(--neon-primary);
+    z-index: 5;
 }
 .tl-top-right {
     top: 0;
@@ -430,7 +433,7 @@ h1, h2, h3, .brand {
     height: 30px;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     border-top: 1px solid #333;
     padding: 40px;
@@ -458,7 +461,7 @@ footer a:hover {
     transform: translateY(-3px);
 }
 
-/* Mobile Responsive */
+/* --- Mobile --- */
 @media (max-width: 768px) {
     .navbar {
         padding: 15px;
@@ -469,9 +472,5 @@ footer a:hover {
     }
     .hero h1 {
         font-size: 2.5rem;
-    }
-    .nav-links {
-        font-size: 0.9rem;
-        gap: 15px;
     }
 }
