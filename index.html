@@ -10,6 +10,9 @@
 </head>
 <body>
 
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
     <div id="boot-screen">
         <div class="boot-terminal">
             <div id="boot-text"></div>
@@ -180,6 +183,13 @@
     </div>
 
     <footer>
+        <div class="theme-selector">
+            <p style="margin-bottom:10px; font-size:0.8rem; letter-spacing: 2px;">SYSTEM_THEME_OVERRIDE:</p>
+            <button class="theme-btn theme-green" onclick="setTheme('green')" title="NETRUNNER (Default)"></button>
+            <button class="theme-btn theme-red" onclick="setTheme('red')" title="ARASAKA (Aggressive)"></button>
+            <button class="theme-btn theme-blue" onclick="setTheme('blue')" title="CORPO (Cool)"></button>
+        </div>
+
         <div class="socials">
             <a href="#"><i class="fab fa-discord"></i></a>
             <a href="#"><i class="fab fa-whatsapp"></i></a>

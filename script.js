@@ -24,7 +24,7 @@ function typeBootSequence() {
         textContainer.appendChild(newLine);
         window.scrollTo(0, document.body.scrollHeight);
         lineIndex++;
-        const randomDelay = Math.floor(Math.random() * 250) + 50; // Random typing speed
+        const randomDelay = Math.floor(Math.random() * 250) + 50; 
         setTimeout(typeBootSequence, randomDelay);
     } else {
         setTimeout(() => {
@@ -38,7 +38,47 @@ window.addEventListener('load', () => {
     typeBootSequence();
 });
 
-// --- 2. BUY FUNCTIONALITY ---
+// --- 2. CUSTOM CURSOR & THEME LOGIC ---
+
+// Mouse Tracking
+const cursorOuter = document.querySelector('.cursor-outer');
+const cursorInner = document.querySelector('.cursor-inner');
+
+document.addEventListener('mousemove', (e) => {
+    // Inner dot follows instantly
+    cursorInner.style.top = e.clientY + 'px';
+    cursorInner.style.left = e.clientX + 'px';
+
+    // Outer ring follows instantly (CSS handles smoothing)
+    cursorOuter.style.top = e.clientY + 'px';
+    cursorOuter.style.left = e.clientX + 'px';
+});
+
+// Hover Expansion
+const clickableElements = document.querySelectorAll('a, button, .product-card-container');
+clickableElements.forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+// Theme Switching Function
+function setTheme(color) {
+    // Remove all theme classes first
+    document.body.classList.remove('theme-red', 'theme-blue');
+    
+    // Add the selected theme class (Green is default, so no class needed)
+    if (color === 'red') {
+        document.body.classList.add('theme-red');
+        console.log("THEME_UPDATED: ARASAKA_RED");
+    } else if (color === 'blue') {
+        document.body.classList.add('theme-blue');
+        console.log("THEME_UPDATED: MILITECH_BLUE");
+    } else {
+        console.log("THEME_UPDATED: NETRUNNER_GREEN");
+    }
+}
+
+// --- 3. BUY FUNCTIONALITY ---
 function addToCart(productName) {
     console.log(`[TRANSACTION]: Initiating purchase for ${productName}...`);
     alert(`SYSTEM_MESSAGE:\n\nAdding [ ${productName} ] to your neural inventory.\n\nProceeding to encrypted gateway...`);
@@ -46,7 +86,7 @@ function addToCart(productName) {
     // window.open(`https://wa.me/967715151560?text=I%20want%20to%20buy%20${encodeURIComponent(productName)}`, '_blank');
 }
 
-// --- 3. LIVE TRAFFIC HUD SIMULATION ---
+// --- 4. LIVE TRAFFIC HUD SIMULATION ---
 let currentUsers = 8402;
 const userElement = document.getElementById('netrunner-count');
 const pingElement = document.getElementById('ping-count');
@@ -80,7 +120,7 @@ function updateTraffic() {
 setInterval(updateTraffic, 2000);
 updateTraffic(); // Run once immediately
 
-// --- 4. DECRYPTION SCRAMBLE EFFECT ON BUTTONS ---
+// --- 5. DECRYPTION SCRAMBLE EFFECT ON BUTTONS ---
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
 document.querySelectorAll('.cyber-btn, .cyber-btn-secondary').forEach(button => {
